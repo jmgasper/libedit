@@ -75,6 +75,10 @@ __FBSDID("$FreeBSD$");
 #include <wchar.h>
 #include <wctype.h>
 
+#ifdef HAVE_STDINT_H
+#include <stdint.h>
+#endif
+
 #ifdef __weak_alias
 __weak_alias(strvisx,_strvisx)
 #endif

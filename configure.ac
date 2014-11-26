@@ -73,7 +73,7 @@ AC_CHECK_INCLUDES_DEFAULT
 AC_PROG_EGREP
 
 AC_HEADER_SYS_WAIT
-AC_CHECK_HEADERS([fcntl.h limits.h malloc.h stdlib.h string.h sys/ioctl.h sys/param.h unistd.h curses.h ncurses.h sys/cdefs.h termcap.h])
+AC_CHECK_HEADERS([fcntl.h limits.h malloc.h stdint.h stdlib.h string.h sys/errno.h errno.h sys/ioctl.h sys/param.h unistd.h curses.h ncurses.h sys/cdefs.h langinfo.h])
 
 AC_CHECK_HEADER([ncurses.h], [],
   [AC_CHECK_HEADER([curses.h], [],

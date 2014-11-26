@@ -132,4 +132,8 @@ extern char* tgoto(const char*, int, int);
 extern char* tgetstr(char*, char**);
 #endif
 
+#ifdef __HAIKU__
+#define NBBY	8
+#endif
+
 #endif /* _h_sys */

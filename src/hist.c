@@ -188,12 +188,14 @@ hist_command(EditLine *el, int argc, const wchar_t **argv)
 			len = len * 4 + 1;
 			if (len >= maxlen) {
 				maxlen = len + 1024;
+				{
 				char *nbuf = el_realloc(buf, maxlen);
 				if (nbuf == NULL) {
 					el_free(buf);
 					return -1;
 				}
 				buf = nbuf;
+				}
 			}
 			strvis(buf, ptr, VIS_NL);
 			(void) fprintf(el->el_outfile, "%d\t%s\n",

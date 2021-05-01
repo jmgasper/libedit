@@ -712,6 +712,7 @@ fn_complete2(EditLine *el,
 	if (matches == NULL) {
 		goto out;
 	}
+	{
 	int i;
 	size_t matches_num, maxlen, match_len, match_display=1;
 	int single_match = matches[2] == NULL &&
@@ -819,6 +820,7 @@ out2:
 out:
 	el_free(temp);
 	return retval;
+	}
 }
 
 int

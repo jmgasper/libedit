@@ -96,6 +96,13 @@ prompt_print(EditLine *el, int op)
 		p = ct_decode_string((char *)(void *)(*elp->p_func)(el),
 		    &el->el_scratch);
 
+	if (!p) {
+		if (op == EL_PROMPT)
+			p = prompt_default(el);
+		else
+			p = prompt_default_r(el);
+	}
+
 	for (; *p; p++) {
 		if (elp->p_ignore == *p) {
 			wchar_t *litstart = ++p;

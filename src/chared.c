@@ -656,11 +656,13 @@ el_deletestr1(EditLine *el, int start, int end)
 
 	p1 = el->el_line.buffer + start;
 	p2 = el->el_line.buffer + end;
-	for (size_t i = 0; i < len; i++) {
+	{
+	size_t i;
+	for (i = 0; i < len; i++) {
 		*p1++ = *p2++;
 		el->el_line.lastchar--;
 	}
-
+	}
 	if (el->el_line.cursor < el->el_line.buffer)
 		el->el_line.cursor = el->el_line.buffer;
 
@@ -685,9 +687,11 @@ el_wreplacestr(EditLine *el, const wchar_t *s)
 	}
 
 	p = el->el_line.buffer;
-	for (size_t i = 0; i < len; i++)
+	{
+	size_t i;
+	for (i = 0; i < len; i++)
 		*p++ = *s++;
-
+	}
 	el->el_line.buffer[len] = '\0';
 	el->el_line.lastchar = el->el_line.buffer + len;
 	if (el->el_line.cursor > el->el_line.lastchar)

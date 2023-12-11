@@ -236,10 +236,13 @@ ct_visual_string(const wchar_t *s, ct_buffer_t *conv)
 		}
 
 		/* failed to encode, need more buffer space */
-		uintptr_t sused = (uintptr_t)dst - (uintptr_t)conv->wbuff;
+		{
+		uintptr_t sused;
+		sused = (uintptr_t)dst - (uintptr_t)conv->wbuff;
 		if (ct_conv_wbuff_resize(conv, conv->wsize + CT_BUFSIZ) == -1)
 			return NULL;
 		dst = conv->wbuff + sused;
+		}
 	}
 
 	if (dst >= (conv->wbuff + conv->wsize)) { /* sigh */
